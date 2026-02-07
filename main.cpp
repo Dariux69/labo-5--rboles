@@ -1,5 +1,5 @@
-//ANDERSON DARIO HERNANDEZ REYES 00023525
-//BRANDON DAVID ALVARADO AREVALO 00109425
+// ANDERSON DARIO HERNANDEZ REYES 00023525
+// BRANDON DAVID ALVARADO AREVALO 00109425
 #include <iostream>
 using namespace std;
 struct Estudiante
@@ -30,7 +30,6 @@ Estudiante *crearEstudiante(int carnet, char nom[], float nota)
 
     return nuevo;
 }
-// TODO: Implementar estas funciones
 // 1. Insertar un estudiante en el árbol (ordenado por carnet)
 Estudiante *insertar(Estudiante *raiz, int carnet, char nombre[], float nota)
 {
@@ -169,7 +168,7 @@ int main()
         cout << "Opcion: ";
         cin >> opcion;
 
-        // Implementa el switch con las opciones
+        // LLamado de funciones 
         switch (opcion)
         {
         case 1:
