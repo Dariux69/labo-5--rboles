@@ -28,16 +28,48 @@ Estudiante* crearEstudiante(int carnet, char nom[], float nota) {
 // TODO: Implementar estas funciones
 // 1. Insertar un estudiante en el árbol (ordenado por carnet)
 Estudiante* insertar(Estudiante* raiz, int carnet, char nombre[], float nota) {
- // Tu código aquí
+    if (raiz == NULL) {
+        return crearEstudiante(carnet, nombre, nota);
+    }
+
+    if (carnet < raiz->carnet) {
+        raiz->izquierdo = insertar(raiz->izquierdo, carnet, nombre, nota);
+    } else if (carnet > raiz->carnet) {
+        raiz->derecho = insertar(raiz->derecho, carnet, nombre, nota);
+    }
+
+    return raiz;
 }
+
 // 2. Mostrar todos los estudiantes en orden de carnet
 void mostrarEstudiantes(Estudiante* raiz) {
- // Tu código aquí
+    if (raiz != NULL) {
+        mostrarEstudiantes(raiz->izquierdo);
+        cout << raiz->carnet << " - "
+             << raiz->nombre << " - "
+             << raiz->nota << endl;
+        mostrarEstudiantes(raiz->derecho);
+    }
 }
+
 // 3. Buscar un estudiante por carnet y mostrar sus datos
 void buscarEstudiante(Estudiante* raiz, int carnet) {
- // Tu código aquí
+    if (raiz == NULL) {
+        cout << "Estudiante no encontrado.\n";
+        return;
+    }
+
+    if (carnet == raiz->carnet) {
+        cout << "Carnet: " << raiz->carnet << endl;
+        cout << "Nombre: " << raiz->nombre << endl;
+        cout << "Nota: " << raiz->nota << endl;
+    } else if (carnet < raiz->carnet) {
+        buscarEstudiante(raiz->izquierdo, carnet);
+    } else {
+        buscarEstudiante(raiz->derecho, carnet);
+    }
 }
+
 // 4. Mostrar estudiantes aprobados (nota >= 6.0)
 void mostrarAprobados(Estudiante* raiz) {
  // Tu código aquí
